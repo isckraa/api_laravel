@@ -15,7 +15,8 @@ class BoutiqueController extends Controller
      */
     public function index()
     {
-        //
+        $boutiques = Boutique::all();
+        return response()->json($boutiques);
     }
 
     /**
@@ -110,21 +111,5 @@ class BoutiqueController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Display database connection information
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function env_data() {
-        return response()->json([
-            'connection' => env('DB_CONNECTION'),
-            'host' => env('DB_HOST'),
-            'port' => env('DB_PORT'),
-            'database' => env('DB_DATABASE'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
-        ]);
     }
 }
